@@ -21,7 +21,7 @@ public class InterdimensionalTransport : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.name != "Main Camera") 
+        if (other.name != "AR Camera") 
             return;
         
         //outside of other world aka portal
