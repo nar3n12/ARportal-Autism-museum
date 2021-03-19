@@ -1,17 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PortalTravel : MonoBehaviour
 {
     public GameObject room;
-    
-     
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
     
     public static void SetLayer ( GameObject gameObject, int layer, bool includeChildren = false) {
         if (!gameObject) return;
@@ -24,12 +18,10 @@ public class PortalTravel : MonoBehaviour
             child.gameObject.layer = layer;
         }
     }
-    
     private void OnTriggerStay(Collider other)
     {
         if (other.name != "AR Camera") 
             return;
-        
         //outside of other world aka portal
         if (transform.position.z > other.transform.position.z)
         {
@@ -41,13 +33,7 @@ public class PortalTravel : MonoBehaviour
         {
             Debug.Log("inside portal");
             if (room.layer != 10) SetLayer(room,10,true);
-
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
