@@ -1,6 +1,6 @@
 Shader "Unlit/Mask"
 {
-    Properties
+  /**  Properties
     {
        
     }
@@ -13,6 +13,22 @@ Shader "Unlit/Mask"
         Pass
         {
            Zwrite Off 
+        }
+    } **/
+    SubShader
+  {  
+    ZWrite off
+    ColorMask 0
+    Cull off 
+    
+    Stencil{
+        Ref 1
+        Comp always
+        Pass replace
+    }
+        
+        Pass
+        {
         }
     }
 }
